@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse, redirect
 import razorpay
 from django.views.decorators.csrf import csrf_exempt
+import json
 
 API_URL = 'http://localhost:8000'
 
@@ -10,12 +11,12 @@ def payment(request):
 
 
 def payment_success(request):
-    razorpay_payment_id = request.POST.get('razorpay_payment_id')
-    headers = {'content-type': 'application/json',
-               'authorization': request.session.get('jwt_token')}
-    try:
-        response = re.post(API_URL + '/user',
-                           data={'paymentID': razorpay_payment_id}, headers=headers)
-    except:
-        return HttpResponse(json.dumps({'status': 500}))
-    return redirect('/auth/login')
+    # razorpay_payment_id = request.POST.get('razorpay_payment_id')
+    # headers = {'content-type': 'application/json',
+    #            'authorization': request.session.get('jwt_token')}
+    # try:
+    #     response = re.post(API_URL + '/user',
+    #                        data={'paymentID': razorpay_payment_id}, headers=headers)
+    # except:
+    #     return HttpResponse(json.dumps({'status': 500}))
+    return redirect('/')

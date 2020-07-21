@@ -1,0 +1,8 @@
+<form action="{%url 'payment:payment_success'%}" method="POST">
+  {% csrf_token %}
+  <script src="https://checkout.razorpay.com/v1/checkout.js" data-key="rzp_test_Brb8XikYT4Alsv" data-amount="50000"
+    data-currency="INR" data-order_id="" data-buttontext="Pay with Razorpay" data-name="Crawlr"
+    data-description="Prime Subscription" data-image="https://example.com/your_logo.jpg" data-prefill.name=""
+    data-prefill.email="" data-prefill.contact="" data-theme.color="#F37254"></script>
+  <input type="hidden" custom="Hidden Element" name="hidden" />
+</form>
